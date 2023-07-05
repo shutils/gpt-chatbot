@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  gpt-chatbot:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    volumes:
+      - ../backend/src:/opt/app/src
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MODEL=${MODEL}
+    tty: true
